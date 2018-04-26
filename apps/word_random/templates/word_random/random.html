@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random word generator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+		.main{
+			margin-left:30%;
+			margin-top: 15%;
+		}
+		.unique{
+			border: black 2px solid;
+			width: 50%;
+			height: 100px;
+			text-align: center;
+		}
+		p{
+			padding-left: 20%;
+			font-size: 40px;
+			margin-bottom: 30px;
+		}
+		.last{
+			display: flex;
+		}
+		.btn {
+			margin-left: 150px;
+		}
+		.display-3{
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="main">
+		<h1 class="display-3">Random Word Generator</h1>
+		<div class="unique">
+			<h2>{{unique_id}}</h2>
+		</div>
+
+		<p>Attempt#{{request.session.counter}}</p>
+
+
+		<div class="last">
+		<form action="/word_random/create" method="post">
+			{% csrf_token %}
+			<input type="submit" value="Generate" class="btn btn-primary btn-lg">
+		</form>
+		<form action="/word_random/reset" method="post">
+			{% csrf_token %}
+			<input type="submit" value="Reset" class="btn btn-secondary btn-lg">
+		</form>
+	</div>
+	</div>
+			
+			
+
+
+</body>
+</html>
+
+
